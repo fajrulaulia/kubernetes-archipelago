@@ -3,9 +3,7 @@ learning kubernetes in minikube, maybe this differenet when using cloud.<br/>
 
  why using minikube?? easy to use and light, but most important:
 
-
-![image](https://c.tenor.com/imSUzC9y7hMAAAAd/tidak-punya-uang-prabowo.gif)
-
+<img src="https://c.tenor.com/imSUzC9y7hMAAAAd/tidak-punya-uang-prabowo.gif" width="300" height="300" />
 
 
 # Image Defined
