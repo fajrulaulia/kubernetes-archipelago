@@ -1,5 +1,5 @@
 # kubernetes archipelago
-learning kubernetes in minikube, maybe this differenet when using cloud.<br/>
+learning kubernetes in minikube, maybe this different when you use k8s on cloud.<br/>
 
  why using minikube?? easy to use and light, but most important:
 
