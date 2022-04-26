@@ -1,5 +1,12 @@
 # kubernetes archipelago
-learning kubernetes in minikube
+learning kubernetes in minikube, maybe this differenet when using cloud.<br/>
+
+ why using minikube?? easy to use and light, but most important:
+
+
+![image](https://c.tenor.com/imSUzC9y7hMAAAAd/tidak-punya-uang-prabowo.gif)
+
+
 
 # Image Defined
 - GRPC Service: `faawidia/webservice-grpc:latest`
@@ -40,3 +47,9 @@ for ingress, when you set hostname on config, don't forget to add in host, in li
 $ minikube service service_name --url
 ```
 
+
+## Application
+simple nodejs microservice: https://github.com/fajrulaulia/simple-nodejs-microservice
+
+
+webapi & webservice: https://github.com/fajrulaulia/typescript-golang-grpc
