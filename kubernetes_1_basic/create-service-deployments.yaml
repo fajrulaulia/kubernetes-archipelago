@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faawidia-deployments-grpc
+spec:
+  selector:
+    matchLabels:
+      name: faawidia-grpc-pod
+  template:
+    metadata:
+      labels:
+        name: faawidia-grpc-pod
+    spec:
+      containers:
+      - name: faawidia-grpc-container
+        image: faawidia/webservice-grpc
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "1000m"
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faawidia-deployments-rest
+spec:
+  selector:
+    matchLabels:
+      name: faawidia-api-pods
+  template:
+    metadata:
+      labels:
+        name: faawidia-api-pods
+    spec:
+      containers:
+      - name: faawidia-api-container
+        image: faawidia/webapi-rest
+        env:
+          - name: WEBSERVICE
+            value: grpc-fajrulappsevice.default.svc.cluster.local:8080
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "1000m"
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-fajrulappsevice
+spec:
+  type: NodePort
+  selector:
+    name: faawidia-api-pods
+  ports:
+  - port: 8432
+    targetPort: 8432
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-fajrulappsevice
+spec:
+  type: ClusterIP
+  selector:
+    name: faawidia-grpc-pod
+  ports:
+  - port: 8080
+    targetPort: 8080
+

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-nodejs-deployment-1
+spec:
+  selector:
+    matchLabels:
+      app: simple-nodejs-pod-1
+  template:
+    metadata:
+      labels:
+        app: simple-nodejs-pod-1
+    spec:
+      containers:
+      - name: simple-nodejs-container
+        image: faawidia/simple-nodejs-microservice:latest
+        env:
+          - name: APP_PORT
+            value: "3000"
+          - name: SVC_NAME
+            value: "SERVICE_1_KATALIS"
+        resources:
+          limits:
+            memory: "156Mi"
+            cpu: "400m"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-nodejs-deployment-2
+spec:
+  selector:
+    matchLabels:
+      app: simple-nodejs-pod-2
+  template:
+    metadata:
+      labels:
+        app: simple-nodejs-pod-2
+    spec:
+      containers:
+      - name: simple-nodejs-container
+        image: faawidia/simple-nodejs-microservice:latest
+        env:
+          - name: APP_PORT
+            value: "3000"
+          - name: SVC_NAME
+            value: "SERVICE_2_WIDIA"
+        resources:
+          limits:
+            memory: "156Mi"
+            cpu: "400m"
